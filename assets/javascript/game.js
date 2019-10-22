@@ -30,7 +30,19 @@ var game = {
     
     //Function will check user guess to see if it is in the word then proceed to pop up letter(s) if it is in word
     checkGuess: function(guess) {
-        
-    }
+       if(this.guessWord.includes(guess)){
+            for(var i = 0; i < this.guessWord.length; i+2){
+                if(guess === this.guessWord[i]){
+                    this.slot.replace(this.slot[i], guess);
+                }
+                
+            }
+       }
+       else
+        {
+        this.guessSlot.replace(this.guessSlot[5-game.guessesLeft], guess);
+        this.guessesLeft= this.guessesLeft -1;
+        }
+    },
 
 };

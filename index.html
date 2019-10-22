@@ -10,15 +10,40 @@
     <script src="assets/javascript/game.js"></script>
     
 </head>
-<body>
-    <h1>Word Guess!</h1>
-    <span id='guessSlot'> </span>> 
+<body class='bg-secondary'>
+    
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-4'>
+                <img src="assets/images/yoda.png" alt="">
+                <h2 class='text-warning'>Read your mind, Yoda can. The word he is thinking of, can you guess?</h2>
+            </div>
+            <div class='col-md-5'>
+                    <h1> Star Wars Word Guess!</h1>
+                    <span id='guessSlot'> </span>
+            </div>
+            <div class='col-md-3 mt-5'>
+                <div>
+                    <h4 class='guessLeft'><u>Guesses, you have</u></h4>
+                </div>
+                
+                
+                <br><br><br>
+                <h4 class='wrongGuess'><u>Guess wrong', you have</u></h4>
+            </div>
+        </div>
+    </div>
+
+    
         
     
     <script>
+        //Initialize the Word guess
+        document.getElementById("guessSlot").textContent = game.makeSlots();
          document.onkeyup = function () {
-           document.getElementById("guessSlot").textContent = game.makeSlots();
-            var userInput = event.key;
+         var userInput = event.key;
+            
 
 
          }    
