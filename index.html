@@ -25,12 +25,17 @@
             </div>
             <div class='col-md-3 mt-5'>
                 <div>
-                    <h4 class='guessLeft'><u>Guesses, you have</u></h4>
+                    <h4><u>Guesses you have</u></h4>
+                    <span id='guessLeft'></span>
                 </div>
                 
                 
                 <br><br><br>
-                <h4 class='wrongGuess'><u>Guess wrong', you have</u></h4>
+                <div>
+                    <h4><u>Guessed wrong you have</u></h4>
+                    <span id='wrongGuess'></span>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -40,19 +45,25 @@
     
     <script>
         //Initialize the Word guess
-        document.getElementById("guessSlot").textContent = game.makeSlots();
-         document.onkeyup = function () {
+        game.makeSlots();
+        document.getElementById("guessSlot").textContent = game.slot;
+        
+        console.log(game.guessWord);
+        document.onkeyup = function () {
          var userInput = event.key.toLowerCase();
          if(game.alpha.includes(userInput)){
-           
+             console.log('This is a letter')
+             game.checkGuess(userInput);
+             document.getElementById('wrongGuess').textContent = game.guesses;
+             console.log(game.slot);
+             console.log(game.guesses);
+             console.log(game.guessesLeft);
          }
-         else{
-            alert("Please pick a letter");
+         else {
+             console.log('This is not a letter')
          }
-            
-
-
-         }    
+         }
+             
     </script>
     
     
