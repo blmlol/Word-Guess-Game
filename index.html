@@ -42,7 +42,13 @@
         //Initialize the Word guess
         document.getElementById("guessSlot").textContent = game.makeSlots();
          document.onkeyup = function () {
-         var userInput = event.key;
+         var userInput = event.key.toLowerCase();
+         if(game.alpha.includes(userInput)){
+           
+         }
+         else{
+            alert("Please pick a letter");
+         }
             
 
 
