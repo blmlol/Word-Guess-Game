@@ -1,6 +1,6 @@
 
 var game = {
-    words: ['jedi', 'lightsaber', 'podracing', 'ewoks', 'lando', 'jabba', 'droid', 'master', 'sithlord', 'chancellor', 'destroyer', 'padme', 'skywalker', 'yoda', 'chewbacca', 'wookie', ' tatooine', 'rebels', 'force', 'senator', 'republic', 'galaxy', 'alderaan', 'darksaber', 'trilogy', 'telekinesis', 'padawan', 'dagobar', 'knight', 'prequel', 'sequel', 'clones', 'empire', 'vader', 'stormtrooper', 'alliance', 'leia', 'bountyhunter', 'order', 'mindread', 'youngling', 'sand', 'blaster', 'palpatine', 'resistance', 'poe', 'senate', 'canon'],
+    words: ['jedi', 'lightsaber', 'podracing', 'ewoks', 'lando', 'jabba', 'droid', 'master', 'sithlord', 'chancellor', 'destroyer', 'padme', 'skywalker', 'yoda', 'chewbacca', 'wookie', 'tatooine', 'rebels', 'force', 'senator', 'republic', 'galaxy', 'alderaan', 'darksaber', 'trilogy', 'telekinesis', 'padawan', 'dagobar', 'knight', 'prequel', 'sequel', 'clones', 'empire', 'vader', 'stormtrooper', 'alliance', 'leia', 'bountyhunter', 'order', 'mindread', 'youngling', 'sand', 'blaster', 'palpatine', 'resistance', 'poe', 'senate', 'canon'],
     gameOver: false,
     guessesLeft: 5,
     wins: 0,
