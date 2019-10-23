@@ -55,22 +55,27 @@
         document.onkeyup = function () {
             var userInput = event.key.toLowerCase();
             //TODO: add conditional to check if user already guessed (wrongly) 
-            if (game.alpha.includes(userInput) && game.guessesLeft !== 0 && !game.slot.includes(userInput) && !game.guesses.includes(userInput)) {
-                console.log('This is a letter')
+            if (game.alpha.includes(userInput) && game.gameOver === false) {
                 game.checkGuess(userInput);
                 document.getElementById('wrongGuess').textContent = game.guesses.join('').toUpperCase();
                 document.getElementById('guessLeft').textContent = game.guessesLeft;
                 document.getElementById('guessSlot').textContent = game.slot;
-                console.log(typeof game.slot);
-                console.log(game.slot.length);
-                console.log(game.slot);
+                game.checkWin();
+
+
+
                 console.log(game.guesses);
+
                 console.log(game.guessesLeft);
-                //These are to test the split and join functions; working as expected!
-                console.log(game.slot.split(""));
-                console.log(game.slot.split(" ").join(" "));
+
+                console.log(game.slot);
+
                 console.log(game.slotArray);
-                console.log(game.slotArray.join(" ").length);
+
+                console.log(game.slotArray.join("").split(" ").join(""));
+
+                console.log(game.guessWord);
+
             }
             else {
                 console.log('This is not a letter')

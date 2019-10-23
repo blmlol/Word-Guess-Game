@@ -1,7 +1,7 @@
 
 var game = {
     words: ['jedi', 'lightsaber', 'podracing', 'ewoks', 'lando', 'jabba', 'droid', 'master', 'sithlord', 'chancellor', 'destroyer', 'padme', 'skywalker', 'yoda', 'chewbacca', 'wookie', ' tatooine', 'rebels', 'force', 'senator', 'republic', 'galaxy', 'alderaan'],
-    isGuessed: false,
+    gameOver: false,
     guessesLeft: 5,
     wins: 0,
     //What letters they have guessed
@@ -39,6 +39,22 @@ var game = {
             this.guessesLeft = this.guessesLeft - 1;
         }
     },
+    checkWin: function () {
+        if (this.slotArray.join("").split(" ").join("") === this.guessWord) {
+            alert("Win, you have. Another word, you shall guess");
+            this.gameOver = true;
+        }
+    },
+    checkLoss: function () {
+        if (this.guessesLeft === 0) {
+            alert("Lost, you have. Try again, you must");
+            this.gameOver = true;
+        }
+    }
 
+    resetGame: function () {
+        this.makeSlots();
+        document.getElementById("guessSlot").textContent = this.slot;
+    },
 
 };
