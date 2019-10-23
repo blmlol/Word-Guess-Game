@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>David's Word Guess Bash</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/javascript/game.js"></script>
-    
+
 </head>
+
 <body class='bg-secondary'>
-    
+
 
     <div class='container'>
         <div class='row'>
@@ -20,55 +23,72 @@
                 <h2 class='text-warning'>Read your mind, Yoda can. The word he is thinking of, can you guess?</h2>
             </div>
             <div class='col-md-5'>
-                    <h1> Star Wars Word Guess!</h1>
-                    <span id='guessSlot'> </span>
+                <h1> Star Wars Word Guess!</h1>
+                <span id='guessSlot'> </span>
             </div>
             <div class='col-md-3 mt-5'>
                 <div>
                     <h4><u>Guesses you have</u></h4>
                     <span id='guessLeft'></span>
                 </div>
-                
-                
+
+
                 <br><br><br>
                 <div>
                     <h4><u>Guessed wrong you have</u></h4>
                     <span id='wrongGuess'></span>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
-    
-        
-    
+
+
+
     <script>
-        //Initialize the Word guess
+        //Initialize the Word guess game with the slots
         game.makeSlots();
         document.getElementById("guessSlot").textContent = game.slot;
-        
+
         console.log(game.guessWord);
         document.onkeyup = function () {
-         var userInput = event.key.toLowerCase();
-         if(game.alpha.includes(userInput)){
-             console.log('This is a letter')
-             game.checkGuess(userInput);
-             document.getElementById('wrongGuess').textContent = game.guesses;
-             console.log(game.slot);
-             console.log(game.guesses);
-             console.log(game.guessesLeft);
-         }
-         else {
-             console.log('This is not a letter')
-         }
-         }
-             
+            var userInput = event.key.toLowerCase();
+            //TODO: add conditional to check if user already guessed (wrongly) 
+            if (game.alpha.includes(userInput) && game.guessesLeft !== 0 && !game.slot.includes(userInput) && !game.guesses.includes(userInput)) {
+                console.log('This is a letter')
+                game.checkGuess(userInput);
+                document.getElementById('wrongGuess').textContent = game.guesses.join('').toUpperCase();
+                document.getElementById('guessLeft').textContent = game.guessesLeft;
+                document.getElementById('guessSlot').textContent = game.slot;
+                console.log(typeof game.slot);
+                console.log(game.slot.length);
+                console.log(game.slot);
+                console.log(game.guesses);
+                console.log(game.guessesLeft);
+                //These are to test the split and join functions; working as expected!
+                console.log(game.slot.split(""));
+                console.log(game.slot.split(" ").join(" "));
+                console.log(game.slotArray);
+                console.log(game.slotArray.join(" ").length);
+            }
+            else {
+                console.log('This is not a letter')
+            }
+        }
+
     </script>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
