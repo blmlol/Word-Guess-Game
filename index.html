@@ -53,16 +53,18 @@
 
         console.log(game.guessWord);
         document.onkeyup = function () {
+
             var userInput = event.key.toLowerCase();
-            //TODO: add conditional to check if user already guessed (wrongly) 
-            if (game.alpha.includes(userInput) && game.gameOver === false) {
+
+
+            if (game.alpha.includes(userInput)) {
+
                 game.checkGuess(userInput);
+                game.checkWin();
+                game.checkLoss();
                 document.getElementById('wrongGuess').textContent = game.guesses.join('').toUpperCase();
                 document.getElementById('guessLeft').textContent = game.guessesLeft;
                 document.getElementById('guessSlot').textContent = game.slot;
-                game.checkWin();
-
-
 
                 console.log(game.guesses);
 
@@ -78,8 +80,9 @@
 
             }
             else {
-                console.log('This is not a letter')
+                alert('Please guess a letter')
             }
+
         }
 
     </script>

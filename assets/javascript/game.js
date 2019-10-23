@@ -33,6 +33,9 @@ var game = {
             }
             this.slot = this.slotArray.join(" ");
         }
+        else if (this.guesses.includes(guess)) {
+            alert("Guess this letter already, you have");
+        }
         else {
             this.guesses.push(guess);
             this.guesses.push(" ");
@@ -43,18 +46,19 @@ var game = {
         if (this.slotArray.join("").split(" ").join("") === this.guessWord) {
             alert("Win, you have. Another word, you shall guess");
             this.gameOver = true;
+            location.reload();
         }
     },
     checkLoss: function () {
         if (this.guessesLeft === 0) {
             alert("Lost, you have. Try again, you must");
             this.gameOver = true;
+            location.reload();
         }
-    }
+    },
 
     resetGame: function () {
-        this.makeSlots();
-        document.getElementById("guessSlot").textContent = this.slot;
+
     },
 
 };
