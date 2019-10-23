@@ -1,6 +1,6 @@
 
 var game = {
-    words: ['jedi', 'lightsaber', 'podracing', 'ewoks', 'lando', 'jabba', 'droid', 'master', 'sithlord', 'chancellor', 'destroyer', 'padme', 'skywalker', 'yoda', 'chewbacca', 'wookie', 'tatooine', 'rebels', 'force', 'senator', 'republic', 'galaxy', 'alderaan', 'darksaber', 'trilogy', 'telekinesis', 'padawan', 'dagobar', 'knight', 'prequel', 'sequel', 'clones', 'empire', 'vader', 'stormtrooper', 'alliance', 'leia', 'bountyhunter', 'order', 'mindread', 'youngling', 'sand', 'blaster', 'palpatine', 'resistance', 'poe', 'senate', 'canon'],
+    words: ['jedi', 'lightsaber', 'podracing', 'ewoks', 'lando', 'jabba', 'droid', 'master', 'chancellor', 'destroyer', 'padme', 'skywalker', 'yoda', 'chewbacca', 'wookie', 'tatooine', 'rebels', 'force', 'senator', 'republic', 'galaxy', 'alderaan', 'darksaber', 'trilogy', 'telekinesis', 'padawan', 'dagobar', 'knight', 'prequel', 'sequel', 'clones', 'empire', 'vader', 'stormtrooper', 'alliance', 'leia', 'order', 'mindread', 'youngling', 'sand', 'blaster', 'palpatine', 'resistance', 'poe', 'senate', 'canon'],
     gameOver: false,
     guessesLeft: 5,
     wins: 0,
@@ -14,7 +14,7 @@ var game = {
     //This function is to input the underscores to demarcate the number of letters in the word to be guessed
     makeSlots: function () {
         //23 because we have 48 words in our list of possible words
-        var num = Math.floor(Math.random() * Math.floor(48));
+        var num = Math.floor(Math.random() * Math.floor(46));
         this.guessWord = this.words[num];
         this.slot = this.slot.repeat(this.words[num].length);
         this.slotArray = this.slot.split("")
